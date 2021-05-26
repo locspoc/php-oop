@@ -11,14 +11,29 @@
 
         <?php
 
-        $user = new User();
-        
-        $user->username = "Suave The Second";
-        $user->password = "Rico Last Name";
-        $user->first_name = "Rica";
-        $user->last_name = "Suaves";
+        // Create User
 
-        $user->create();
+        // $user = new User();
+        
+        // $user->username = "Suave The Second";
+        // $user->password = "Rico Last Name";
+        // $user->first_name = "Rica";
+        // $user->last_name = "Suaves";
+
+        // $user->create();
+
+        // Update User
+
+        // $user = User::find_user_by_id(2);
+        // $user->last_name = "WILLIAMS";
+
+        // $user->update();
+
+        // Delete User
+
+        $user = User::find_user_by_id(1);
+
+        $user->delete();
 
         ?>
 
