@@ -13,27 +13,45 @@
 
         // Create User
 
-        // $user = new User();
+        $user = new User();
         
-        // $user->username = "Suave The Second";
-        // $user->password = "Rico Last Name";
-        // $user->first_name = "Rica";
-        // $user->last_name = "Suaves";
+        $user->username = "student";
+        $user->password = "somethingweird";
+        $user->first_name = "John";
+        $user->last_name = "Bravo";
 
-        // $user->create();
+        $user->create();
 
         // Update User
 
-        // $user = User::find_user_by_id(2);
+        // $user = User::find_user_by_id(10);
+        // $user->username = "vanessa";
+        // $user->password = "123";
+        // $user->first_name = "Vanessa";
         // $user->last_name = "WILLIAMS";
 
         // $user->update();
 
         // Delete User
 
-        $user = User::find_user_by_id(1);
+        // $user = User::find_user_by_id(3);
 
-        $user->delete();
+        // $user->delete();
+
+        // Update User
+
+        // $user = User::find_user_by_id(9);
+
+        // $user->password = "justapassword";
+        // $user->last_name = "Williamson";
+
+        // $user->save();
+
+        // Create User
+
+        // $user = new User();
+        // $user->username = "Suave";
+        // $user->save();
 
         ?>
 
