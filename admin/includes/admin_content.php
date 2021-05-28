@@ -13,14 +13,14 @@
 
         // Create User
 
-        $user = new User();
+        // $user = new User();
         
-        $user->username = "student";
-        $user->password = "somethingweird";
-        $user->first_name = "John";
-        $user->last_name = "Bravo";
+        // $user->username = "student";
+        // $user->password = "somethingweird";
+        // $user->first_name = "John";
+        // $user->last_name = "Bravo";
 
-        $user->create();
+        // $user->create();
 
         // Update User
 
@@ -50,8 +50,35 @@
         // Create User
 
         // $user = new User();
-        // $user->username = "Suave";
+        // $user->username = "NEW USER";
         // $user->save();
+
+        // Find
+
+        // $users = User::find_all();
+
+        // foreach ($users as $user) {
+        //     echo $user->username;
+        // }
+
+        // Find Photos
+
+        // $photos = Photo::find_all();
+
+        // foreach ($photos as $photo) {
+        //     echo $photo->title;
+        // }
+
+        // New Photo
+
+        // $photo = new Photo();
+        
+        // $photo->title = "Just some test title";
+        // $photo->size = 20;
+
+        // $photo->create();
+
+        echo INCLUDES_PATH;
 
         ?>
 
@@ -69,3 +96,4 @@
 
 </div>
 <!-- /.container-fluid -->
+
