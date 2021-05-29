@@ -11,6 +11,14 @@
 
         <?php
 
+        $photo = Photo::find_by_id(5);
+
+        echo $photo->filename;
+
+        // $user = User::find_by_id(10);
+
+        // echo $user->username;
+
         // Create User
 
         // $user = new User();
@@ -78,7 +86,7 @@
 
         // $photo->create();
 
-        echo INCLUDES_PATH;
+        // echo INCLUDES_PATH;
 
         ?>
 
