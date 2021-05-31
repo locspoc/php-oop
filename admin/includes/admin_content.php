@@ -11,9 +11,9 @@
 
         <?php
 
-        $photo = Photo::find_by_id(5);
+        // $photo = Photo::find_by_id(5);
 
-        echo $photo->filename;
+        // echo $photo->filename;
 
         // $user = User::find_by_id(10);
 
