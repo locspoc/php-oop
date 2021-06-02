@@ -99,7 +99,7 @@ if(empty($_GET['id'])) {
             
                 <label for="summernote">Description</label>
 
-                <textarea id="summernote" class="form-control" name="description" id="" cols="30" rows="10" ><?php echo $photo->description; ?></textarea>
+                <textarea id="summernote" class="form-control" name="description" cols="30" rows="10" ><?php echo $photo->description; ?></textarea>
 
             </div>
 
