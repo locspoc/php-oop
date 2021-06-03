@@ -72,7 +72,6 @@ $users = User::find_all();
                                 
                                 <a href="delete_user.php?id=<?php echo $user->id; ?>">Delete</a>
                                 <a href="edit_user.php?id=<?php echo $user->id; ?>">Edit</a>
-                                <a href="#">View</a>
 
                             </div>
 

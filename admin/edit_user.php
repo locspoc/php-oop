@@ -4,9 +4,15 @@
 
 <?php
 
-$user = new User();
+if(empty($_GET['id'])) {
 
-if(isset($_POST['create'])) {
+    redirect("users.php");
+
+}
+
+$user = User::find_by_id($_GET['id']);
+
+if(isset($_POST['update'])) {
 
     if($user) {
 
@@ -15,24 +21,21 @@ if(isset($_POST['create'])) {
         $user->last_name =$_POST['last_name'];
         $user->password =$_POST['password'];
 
-        $user->set_file($_FILES['user_image']);
+        if(empty($_FILES['user_image'])){
 
-        $user->save_user_and_image();
+            $user->save();
+        
+        } else {
 
-        // $user->save();
+            $user->set_file($_FILES['user_image']);
+            $user->upload_photo();
+            $user->save();
+            redirect("edit_user.php?id={$user->id}");
+
+        }
+        
 
     }
-
-    // if($user) {
-
-    //     $user->title = $_POST['title'];
-    //     $user->caption = $_POST['caption'];
-    //     $user->alternate_text = $_POST['alternate_text'];
-    //     $user->description = $_POST['description'];
-
-    //     $user->save();
-
-    // }
 
 }
 
@@ -60,13 +63,21 @@ if(isset($_POST['create'])) {
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        ADD USER
+                        EDIT USER
                         <small>Subheading</small>
                     </h1>
 
+        <div class="col-md-6">
+        
+            <img class="img-responsive" src="<?php echo $user->image_path_and_placeholder(); ?>" alt="">
+        
+        </div>
+
         <form action="" method="POST" enctype="multipart/form-data">
+
+
                     
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-6">
         
             <div class="form-group">
             
@@ -78,7 +89,7 @@ if(isset($_POST['create'])) {
 
                 <label for="username">Username</label>
             
-                <input type="text" name="username" class="form-control">
+                <input type="text" name="username" class="form-control" value="<?php echo $user->username; ?>">
 
             </div>
 
@@ -86,7 +97,7 @@ if(isset($_POST['create'])) {
             
                 <label for="first_name">First Name</label>
 
-                <input type="text" name="first_name" class="form-control">
+                <input type="text" name="first_name" class="form-control" value="<?php echo $user->first_name; ?>">
 
             </div>
 
@@ -94,7 +105,7 @@ if(isset($_POST['create'])) {
             
                 <label for="last_name">Last Name</label>
 
-                <input type="text" name="last_name" class="form-control">
+                <input type="text" name="last_name" class="form-control" value="<?php echo $user->last_name; ?>">
 
             </div>
             
@@ -102,13 +113,15 @@ if(isset($_POST['create'])) {
             
                 <label for="password">Password</label>
 
-                <input type="password" name="password" class="form-control">
+                <input type="password" name="password" class="form-control" value="<?php echo $user->password; ?>">
 
             </div>
 
             <div class="form-group">
 
-                <input type="submit" name="create" class="btn btn-primary pull-right">
+                <a class="btn btn-danger" href="delete_user.php?id=<?php echo $user->id; ?>">Delete</a>
+
+                <input type="submit" name="update" class="btn btn-primary pull-right" value="Update">
 
             </div>
 

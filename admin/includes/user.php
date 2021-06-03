@@ -32,7 +32,7 @@ class User extends Db_object {
     public $last_name;
     public $user_image;
     public $upload_directory = "images";
-    public $image_placeholder = "http://placehold.it/400x400&text=image";
+    public $image_placeholder = "http://placehold.it/400x400&text=image";  
 
     public function set_file($file) {
 
@@ -57,13 +57,13 @@ class User extends Db_object {
 
     }
 
-    public function save_user_and_image() {
+    public function upload_photo() {
 
-        if($this->id) {
+        // if($this->id) {
 
-            $this->update();
+        //     $this->update();
 
-        } else {
+        // } else {
 
             if(!empty($this->errors)) {
 
@@ -89,12 +89,12 @@ class User extends Db_object {
 
             if(move_uploaded_file($this->tmp_path, $target_path)) {
 
-                if( $this->create()) {
+                // if( $this->create()) {
 
                     unset($this->tmp_path);
                     return true;
 
-                }
+                // }
 
             } else {
 
@@ -105,7 +105,7 @@ class User extends Db_object {
 
         }
 
-    }
+    // }
 
     public function image_path_and_placeholder() {
 
